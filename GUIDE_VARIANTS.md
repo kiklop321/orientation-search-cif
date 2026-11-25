@@ -8,8 +8,8 @@ This guide covers two related tools:
   (OR). It gives their orientations, shows them in pole figures and in 3D, and
   saves them for the orientation search. `show_variants_3d.m` opens the 3D
   pictures of saved variants without MTEX.
-* **Part B – what an orientation means:** `animate_orientation.m`,
-  `visualize_orientation.m` and section 8 of `step_by_step.m` show how the
+* **Part B – what an orientation means:** `visualization/animate_orientation.m`,
+  `visualization/visualize_orientation.m` and section 8 of `step_by_step.m` show how the
   orientation found by the search (quaternion q and φ0) turns the unit cell
   in the experiment, and give its Euler angles.
 
@@ -193,7 +193,7 @@ explains 403 of 495 spots with all 12 α″ variants; one α″ crystal alone
 explains 49. The same result is obtained with the variants written by hand
 in the tool (`variants_from_OR.m`) – checked to 0.0000°.
 
-The variants can be used in `step_by_step.m` and `test_beta_Ti.m` in the same
+The variants can be used in `step_by_step.m` and `tests/test_beta_Ti.m` in the same
 way (the `phase = ...` line).
 
 ## A6. The variants in the sample (orientation of the parent known)
@@ -228,7 +228,7 @@ Run it (F5) and use the viewer: menu **variant:**, mouse to turn.
 
 ## A8. Checks
 
-`test_variants_mtex.m` (needs MTEX) compares the MTEX variants with those of
+`tests/test_variants_mtex.m` (needs MTEX) compares the MTEX variants with those of
 `variants_from_OR.m` for β → α″ (article OR), β → α′ (MTEX Burgers) and β → α′
 (Burgers in 4-index notation): every MTEX variant must be exactly one of the
 tool's own. Last line: `ALL TESTS true`.
@@ -266,7 +266,7 @@ exposure; during the exposure the sample turns φ0 ± 30°). Splitting it this
 way is fast because a turn about z does not change where a reflection lands
 on the detector (2θ, β), only the angle at which it diffracts.
 
-## B1. `animate_orientation.m` – the cell turned by q and φ0
+## B1. `visualization/animate_orientation.m` – the cell turned by q and φ0
 
 Settings: `result_dir` (a results folder with `orientation.mat`), `grain`,
 `make_gif`. Shows six stages – start (a ∥ x = beam, b ∥ y, c ∥ z), the tilt by
@@ -274,7 +274,7 @@ q (n goes to z, orange arrow, its path dotted), the turn by φ0 about z (path
 of a dotted), and the final cell seen along z. With `make_gif = true` the
 movement is also played and saved as `.gif` and `.mp4` in `result_dir`.
 
-## B2. `visualize_orientation.m` – the cell in the experiment
+## B2. `visualization/visualize_orientation.m` – the cell in the experiment
 
 Settings: `result_dir`, `grain`, `n_rays`. Four panels: the cell inside the
 cylindrical image plate with the beam, the beam centre (red dot) and the
@@ -311,9 +311,9 @@ comparing. The crystal symmetry gives equivalent sets (24 for cubic).
 |---|---|
 | `make_variants_mtex.m` | variants of a child phase in a parent from two CIFs and an OR (MTEX): table, pole figures, 3D, `.mat` for the search |
 | `show_variants_3d.m` | 3D pictures and viewer of saved variants (no MTEX) |
-| `test_variants_mtex.m` | MTEX variants against the tool's own (needs MTEX) |
-| `animate_orientation.m` | how q and φ0 turn the cell (figure, GIF/MP4) |
-| `visualize_orientation.m` | the cell, beam and detector in 3D; Euler angles |
+| `tests/test_variants_mtex.m` | MTEX variants against the tool's own (needs MTEX) |
+| `visualization/animate_orientation.m` | how q and φ0 turn the cell (figure, GIF/MP4) |
+| `visualization/visualize_orientation.m` | the cell, beam and detector in 3D; Euler angles |
 | `src/variants_mtex.m` | the MTEX part: crystal symmetries from the CIFs, OR, variants |
 | `src/plot_variants_3d.m` | the 3D pictures and the viewer |
 | `src/plot_orientation_steps.m`, `src/plot_orientation_3d.m` | the orientation pictures (used by the scripts above and `step_by_step.m`) |

@@ -14,8 +14,8 @@ doi:[10.1107/S1600576726007739](https://doi.org/10.1107/S1600576726007739)
 **Data.** The diffraction frames (`.img`) used by the examples and tests are
 not part of this repository; see [`data/README.md`](data/README.md) for the
 files and where they go. The code, the CIF files and the saved variants are
-complete without them; `test_cif.m`, `test_cif_any.m`,
-`test_variants_mtex.m` and `show_variants_3d.m` run without any frame.
+complete without them; `tests/test_cif.m`, `tests/test_cif_any.m`,
+`tests/test_variants_mtex.m` and `show_variants_3d.m` run without any frame.
 
 ## Quick start
 
@@ -26,7 +26,7 @@ pictures of an orientation: [GUIDE_VARIANTS.md](GUIDE_VARIANTS.md).
 
 ```matlab
 cd orientation-search-cif
-test_cif                    % checks the CIF reader on the files in cif/ (seconds)
+run tests/test_cif          % checks the CIF reader on the files in cif/ (seconds)
 run_orientation_search      % orientation search, settings in section 0
 ```
 
@@ -40,16 +40,19 @@ GUIDE.md                     step-by-step user guide
 GUIDE_VARIANTS.md            guide to the variants with MTEX and to the orientation pictures
 run_orientation_search.m     main script: settings (section 0) and the five steps
 step_by_step.m               the same, one step at a time with a check figure after each (for finding problems)
-test_cif.m                   tests of the CIF reader on the Ti phases, variants
-test_cif_any.m               tests on CIF files of all crystal systems (cif/test_set/)
-test_beta_Ti.m               beta-Ti CIF on four single-grain Ti-24Nb / Ti-28Nb frames and the Ti-20Nb control
-example_two_grains.m         search for several grains in one frame (two-grain Ti-24Nb)
-animate_orientation.m        how n -> z (quaternion) and phi0 turn the unit cell: 6 stages + animated GIF
-visualize_orientation.m      what q and phi0 mean: 3D picture of the cell, beam, rotation axis and image plate
-visualize_two_grains.m       orientation relationship of the two grains (cells, pole figures, IPF, CSL)
-show_variants_3d.m           open the 3D pictures and the viewer of saved variants (no MTEX needed)
 make_variants_mtex.m         variants of a child phase in a parent crystal from two CIFs and an OR, with MTEX
-test_variants_mtex.m         MTEX variants against variants_from_OR (needs MTEX)
+show_variants_3d.m           open the 3D pictures and the viewer of saved variants (no MTEX needed)
+visualization/               pictures of results
+  animate_orientation.m      how n -> z (quaternion) and phi0 turn the unit cell: 6 stages + animation
+  visualize_orientation.m    what q and phi0 mean: 3D picture of the cell, beam, rotation axis and image plate
+  visualize_two_grains.m     orientation relationship of two grains (cells, pole figures, IPF, CSL)
+examples/
+  example_two_grains.m       search for several grains in one frame (two-grain Ti-24Nb)
+tests/                       checks of the code (run after changes)
+  test_cif.m                 CIF reader on the Ti phases, variants
+  test_cif_any.m             CIF files of all crystal systems (cif/test_set/)
+  test_beta_Ti.m             beta-Ti CIF on four single-grain Ti-24Nb / Ti-28Nb frames and the Ti-20Nb control
+  test_variants_mtex.m       MTEX variants against variants_from_OR (needs MTEX)
 variants/                    variants saved by make_variants_mtex.m (.mat for the search, _variants.csv,
                                _polefigures.png, _3d_overview/_3d_variants/_3d_variant1.png):
                                alpha2_in_beta (alpha'' in beta), alpha_hcp_in_beta (alpha' in beta, Burgers),
@@ -218,7 +221,7 @@ the OR; with `parent_orientation` (a search result or Euler angles of the
 parent grain) also its Euler angles in the sample frame (X = beam, Z =
 rotation axis). The misorientations between the variants are printed.
 
-Checks (`test_variants_mtex.m` and runs on Ti20Nb0O):
+Checks (`tests/test_variants_mtex.m` and runs on Ti20Nb0O):
 * β → α″ (OR of the article) and β → α hcp (Burgers, from MTEX and in
   4-index notation): the 12 MTEX variants are exactly the 12 of
   `variants_from_OR.m`.
@@ -238,7 +241,7 @@ Checks (`test_variants_mtex.m` and runs on Ti20Nb0O):
 
 ## Several grains in one frame
 
-With `S.n_grains > 1` (see `example_two_grains.m`) the spots explained by the
+With `S.n_grains > 1` (see `examples/example_two_grains.m`) the spots explained by the
 grains found so far are removed and the orientation search is repeated on
 the remaining spots, with the refined cell. A new grain is accepted if it
 explains at least `S.min_spots_per_grain` spots; the search stops at the
@@ -257,9 +260,9 @@ Example – the Ti-24Nb frame of the article (`data/two_grains/Ti24Nb0O.img`):
 | misorientation to grain 1 | – | 43.7° | – |
 
 
-### Relationship of two grains (`visualize_two_grains.m`)
+### Relationship of two grains (`visualization/visualize_two_grains.m`)
 
-After `example_two_grains.m`, `visualize_two_grains.m` shows how the two
+After `examples/example_two_grains.m`, `visualization/visualize_two_grains.m` shows how the two
 grains are related, as in EBSD (`results/Ti24Nb0O_two_grains/grain_relationship.png`
 and `relationship.txt`):
 
@@ -296,7 +299,7 @@ microstructure.
 
 ## Tests
 
-`test_cif.m` reads the CIF files in `cif/`:
+`tests/test_cif.m` reads the CIF files in `cif/`:
 
 | File | Phase | Space group | Source |
 |---|---|---|---|
@@ -311,7 +314,7 @@ systematic extinctions of each space group, and that the 12 α″ variants
 generated from the β and α″ CIFs form a set that every rotation of β maps
 onto itself (a rotation of the parent only permutes the variants).
 
-`test_beta_Ti.m` runs the β-Ti CIF (a = 3.282 Å, refined to every frame) on
+`tests/test_beta_Ti.m` runs the β-Ti CIF (a = 3.282 Å, refined to every frame) on
 the four single-grain frames of the β alloys and on the α″ control:
 
 | Frame | Spots | Matched to one β crystal | Refined a (Å) | φ0 (deg) |
@@ -339,7 +342,7 @@ the four single-grain frames of the β alloys and on the α″ control:
 * In the α″ control the few coinciding reflections still give the
   orientation of the parent β grain found with the α″ variants (within 2°).
 
-`test_cif_any.m` checks ten CIF files of all crystal systems from COD
+`tests/test_cif_any.m` checks ten CIF files of all crystal systems from COD
 (`cif/test_set/`): NaCl (Fm-3m), α-Fe (Im-3m, no symmetry operations in the
 file), cristobalite (Fd-3m, origin 1), Mg (P6₃/mmc), corundum (R-3c,
 hexagonal axes), quartz (P3₁21), rutile (P4₂/mnm), anatase (I4₁/amd,
@@ -366,9 +369,9 @@ from https://www.mrc-lmb.cam.ac.uk/harry/imosflm/ver721/downloads/syminfo.lib.
   rotations of the CIF point group. For non-centrosymmetric groups (e.g.
   −43m, 4mm, 3m) the diffraction pattern has the higher symmetry of the
   Laue group, so two orientations that give the same pattern may be
-  reported as different (e.g. 90° apart), and `visualize_two_grains.m`
+  reported as different (e.g. 90° apart), and `visualization/visualize_two_grains.m`
   treats 23, m-3 and −43m crystals as non-cubic (no IPF, no CSL).
-* `visualize_two_grains.m` assumes a single-crystal phase; with variants
+* `visualization/visualize_two_grains.m` assumes a single-crystal phase; with variants
   ('parent', 'OR') the printed indices would use the child cell for the
   parent orientation.
 * `S.mesh_degree`: stage 2 takes 4^(d2+2−d1) orientations; the second
@@ -384,7 +387,7 @@ from https://www.mrc-lmb.cam.ac.uk/harry/imosflm/ver721/downloads/syminfo.lib.
 
 MATLAB R2022b (tested) with the Signal Processing, Statistics and Machine
 Learning and Aerospace toolboxes. Optional: MTEX 6.1.1 for
-`make_variants_mtex.m` / `test_variants_mtex.m`.
+`make_variants_mtex.m` / `tests/test_variants_mtex.m`.
 
 ## Licence and third-party code
 

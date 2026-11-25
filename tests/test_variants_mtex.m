@@ -14,6 +14,7 @@
 clear;
 here = fileparts(mfilename('fullpath'));
 if isempty(here) || ~isfile(fullfile(here, 'test_variants_mtex.m')), here = fileparts(which('test_variants_mtex.m')); end
+here = fileparts(here);                  % the tool folder (this script is in tests/)
 addpath(fullfile(here, 'src'));
 mtex_path = '';                  % folder with startup_mtex.m ('' = MTEX already started)
 if ~exist('crystalSymmetry', 'class')

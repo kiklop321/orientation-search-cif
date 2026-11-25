@@ -11,6 +11,7 @@
 
 clear; close all;
 here = fileparts(mfilename('fullpath'));
+here = fileparts(here);                  % the tool folder (this script is in tests/)
 addpath(fullfile(here, 'src'), ...
         fullfile(here, 'external', 'RigakuRapidUtils'), fullfile(here, 'external', 'sphere'));
 data = fullfile(here, 'data');                                    % frames used here

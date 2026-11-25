@@ -8,14 +8,14 @@ expect exactly this layout:
 data/
   Ti20Nb0O.img                     Ti-20Nb: alpha'' martensite (12 variants of one beta grain)
                                    - run_orientation_search.m (example of GUIDE.md, section 2),
-                                     test_beta_Ti.m (negative control), variant search
+                                     tests/test_beta_Ti.m (negative control), variant search
   beta_single_grain/               beta Ti-24Nb / Ti-28Nb, one grain each
-    Ti24Nb_1.img                   - step_by_step.m, GUIDE.md section 5, test_beta_Ti.m
-    Ti24Nb0O-50-40.img             - test_beta_Ti.m (tube at 50 kV / 40 mA)
-    Ti28Nb_1.img                   - test_beta_Ti.m
-    Ti28Nb0O.img                   - test_beta_Ti.m
+    Ti24Nb_1.img                   - step_by_step.m, GUIDE.md section 5, tests/test_beta_Ti.m
+    Ti24Nb0O-50-40.img             - tests/test_beta_Ti.m (tube at 50 kV / 40 mA)
+    Ti28Nb_1.img                   - tests/test_beta_Ti.m
+    Ti28Nb0O.img                   - tests/test_beta_Ti.m
   two_grains/
-    Ti24Nb0O.img                   two beta grains - example_two_grains.m, visualize_two_grains.m
+    Ti24Nb0O.img                   two beta grains - examples/example_two_grains.m, visualization/visualize_two_grains.m
 ```
 
 Instrument: Rigaku R-AXIS RAPID, Mo K-alpha (0.7093 A), cylindrical image

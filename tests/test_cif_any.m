@@ -8,6 +8,7 @@
 
 clear;
 here = fileparts(mfilename('fullpath'));
+here = fileparts(here);                  % the tool folder (this script is in tests/)
 addpath(fullfile(here, 'src'));
 d = fullfile(here, 'cif', 'test_set');
 odd = @(x) mod(x, 2) ~= 0;

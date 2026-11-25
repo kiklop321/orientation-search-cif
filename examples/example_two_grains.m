@@ -9,6 +9,7 @@
 
 clear; close all;
 here = fileparts(mfilename('fullpath'));
+here = fileparts(here);                  % the tool folder (this script is in examples/)
 addpath(fullfile(here, 'src'), fullfile(here, 'external', 'RigakuRapidUtils'), fullfile(here, 'external', 'sphere'));
 
 S.wavelength = 0.7093;  beam_center = [1274, 3247];

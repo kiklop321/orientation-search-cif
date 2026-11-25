@@ -8,6 +8,7 @@
 
 clear;
 here = fileparts(mfilename('fullpath'));
+here = fileparts(here);                  % the tool folder (this script is in tests/)
 addpath(fullfile(here, 'src'));
 cifdir = fullfile(here, 'cif');
 lambda = 0.7093;

@@ -27,6 +27,7 @@
 clear; close all;
 here = fileparts(mfilename('fullpath'));
 if isempty(here) || ~isfile(fullfile(here, 'visualize_orientation.m')), here = fileparts(which('visualize_orientation.m')); end
+here = fileparts(here);                  % the tool folder (this script is in visualization/)
 addpath(fullfile(here, 'src'), fullfile(here, 'external', 'RigakuRapidUtils'));
 
 %% Settings ===============================================================

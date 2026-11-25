@@ -22,7 +22,7 @@ the beam centre.
   ```
 * Check that everything works:
   ```matlab
-  test_cif          % a few seconds; the last line must be  ALL TESTS true
+  run tests/test_cif     % a few seconds; the last line must be  ALL TESTS true
   ```
 
 ## 2. First run: the example
@@ -74,7 +74,7 @@ expected here.)
 ## 3. Second example: β grains, one per frame
 
 ```matlab
-test_beta_Ti
+run tests/test_beta_Ti
 ```
 
 Runs the β-Ti CIF on four frames of β Ti–Nb (`data/beta_single_grain/`) and
@@ -236,7 +236,7 @@ relationship of the two grains.
 | `Ti28Nb_1.img` | 74 | 65 | 3.3004 |
 | `Ti28Nb0O.img` | 101 | 70 | 3.2953 |
 
-(`test_beta_Ti.m` runs all of them at once.) If instead you keep the α″
+(`tests/test_beta_Ti.m` runs all of them at once.) If instead you keep the α″
 CIF on a β frame, or the β CIF on the α″ frame `Ti20Nb0O.img`, only a few
 per cent of the spots match – the quickest way to see that the phase is
 wrong.
@@ -251,12 +251,12 @@ S.min_spots_per_grain = 15;     % a grain must explain at least this many spots
 Each grain gets its own colour in the overlay and its number in the
 `grain` column of `spots_matched.csv`. The ready-made example is
 ```matlab
-example_two_grains              % data/two_grains/Ti24Nb0O.img, finds 2 beta grains
+run examples/example_two_grains     % data/two_grains/Ti24Nb0O.img, finds 2 beta grains
 ```
 
 **How are the two grains related?** Afterwards run
 ```matlab
-visualize_two_grains
+run visualization/visualize_two_grains
 ```
 (set `result_dir` at its top to your results folder). It produces
 `grain_relationship.png` – both unit cells, pole figures {100}, {110},
@@ -367,12 +367,12 @@ threshold adds mainly off-ring spots (1.5: 118 spots, 31 off the rings).
 |---|---|
 | `run_orientation_search.m` | analyse one frame (**the main script**) |
 | `step_by_step.m` | the same step by step, to find where a problem comes from |
-| `example_two_grains.m` | see the multi-grain search |
-| `animate_orientation.m` | see how the vector n, the quaternion q and φ0 turn the unit cell (figure + GIF) |
-| `visualize_orientation.m` | see in 3D what the found orientation (q, φ0) means in the experiment |
-| `visualize_two_grains.m` | show the relationship of two grains |
+| `examples/example_two_grains.m` | see the multi-grain search |
+| `visualization/animate_orientation.m` | see how the vector n, the quaternion q and φ0 turn the unit cell (figure + GIF) |
+| `visualization/visualize_orientation.m` | see in 3D what the found orientation (q, φ0) means in the experiment |
+| `visualization/visualize_two_grains.m` | show the relationship of two grains |
 | `show_variants_3d.m` | look at saved variants in 3D: choose a variant, turn it with the mouse (no MTEX needed) |
 | `make_variants_mtex.m` | make the variants of a martensite in its parent (two CIFs + OR) with MTEX, for the search |
-| `test_beta_Ti.m` | see the tool on four β frames and a wrong-phase control |
-| `test_cif.m`, `test_cif_any.m` | check the CIF reader (after changes to the code) |
+| `tests/test_beta_Ti.m` | see the tool on four β frames and a wrong-phase control |
+| `tests/test_cif.m`, `tests/test_cif_any.m` | check the CIF reader (after changes to the code) |
 | `src/` | the functions – no need to open them for normal use |

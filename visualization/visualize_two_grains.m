@@ -30,6 +30,7 @@
 
 clear; close all;
 here = fileparts(mfilename('fullpath'));
+here = fileparts(here);                  % the tool folder (this script is in visualization/)
 addpath(fullfile(here, 'src'));
 
 %% Settings ===============================================================

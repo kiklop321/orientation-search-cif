@@ -18,6 +18,7 @@
 clear; close all;
 here = fileparts(mfilename('fullpath'));
 if isempty(here) || ~isfile(fullfile(here, 'animate_orientation.m')), here = fileparts(which('animate_orientation.m')); end
+here = fileparts(here);                  % the tool folder (this script is in visualization/)
 addpath(fullfile(here, 'src'));
 
 %% Settings ===============================================================
