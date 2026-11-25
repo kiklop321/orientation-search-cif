@@ -103,6 +103,11 @@ play_animation = false;             % true = also play the movement of the cell 
 %   on the rings on one side of the frame, off on the other -> beam centre
 %   many spots far from any ring                   -> other phase / other grain / noise
 
+if ~isfile(image_file)
+    error('orientation:noFrame', ['Frame not found:\n  %s\n' ...
+        'The example frames are not part of the repository: put them into data/ as listed in ' ...
+        'data/README.md, or set image_file (section 0) to your own .img frame.'], image_file);
+end
 d = RAPIDread(char(image_file));
 d.zero = beam_center;
 geom = RAPIDutils.getDiffractionGeometry(d);

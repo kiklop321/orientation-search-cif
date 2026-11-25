@@ -20,6 +20,11 @@ function out = orientation_pipeline(image_file, beam_center, phase, S, P, out_di
 %                          esd_col, rms_before, rms_after]
 
 %% 1. Read the frame ======================================================
+if ~isfile(image_file)
+    error('orientation:noFrame', ['Frame not found:\n  %s\n' ...
+        'The example frames are not part of the repository: put them into data/ as listed in ' ...
+        'data/README.md, or set image_file (section 0) to your own .img frame.'], image_file);
+end
 if ~isfolder(out_dir), mkdir(out_dir); end
 d = RAPIDread(image_file);
 d.zero = beam_center;

@@ -17,6 +17,25 @@ files and where they go. The code, the CIF files and the saved variants are
 complete without them; `tests/test_cif.m`, `tests/test_cif_any.m`,
 `tests/test_variants_mtex.m` and `show_variants_3d.m` run without any frame.
 
+## Getting started in five steps
+
+1. **Get the code:** "Code → Download ZIP" on GitHub (or `git clone`), unzip,
+   open the folder `orientation-search-cif` in MATLAB (R2022b or newer with the
+   Signal Processing, Statistics and Machine Learning and Aerospace toolboxes).
+2. **Check it works:** `run tests/test_cif` – the last line must be
+   `ALL TESTS true` (no data needed).
+3. **Frames:** put the example frames into `data/` as listed in
+   [`data/README.md`](data/README.md), or use your own `.img` frame.
+4. **Settings:** open `run_orientation_search.m`; everything you set is in
+   **section 0** – the frame (`image_file`), the phase (`cif_file`), the
+   instrument (`S.wavelength`, `beam_center`), the rotation during the
+   exposure (`S.rotation_range`) and how many grains to look for
+   (`S.n_grains`). Every line has a comment saying what it means.
+5. **Run** it (F5). The result is in `results/<name>/`: `orientation_overlay.png`,
+   `summary.txt`, `spots_matched.csv`. If it does not look right, go through
+   `step_by_step.m` section by section (Ctrl+Enter) – every figure says what
+   to look for.
+
 ## Quick start
 
 **New to the tool? Start with [GUIDE.md](GUIDE.md)** – a step-by-step guide from the

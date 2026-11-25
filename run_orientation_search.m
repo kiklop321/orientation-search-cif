@@ -22,8 +22,8 @@ addpath(fullfile(here, 'src'), ...
 %% 0. Settings ============================================================
 
 % --- input frame
-name        = 'Ti24Nb_two_grains';                 % name of the output folder
-image_file  = fullfile(here, 'data', 'two_grains', 'Ti24Nb0O.img');
+name        = 'Ti20Nb0O_alpha2_single';    % name of the output folder (results/<name>/)
+image_file  = fullfile(here, 'data', 'Ti20Nb0O.img');   % the frame (.img); example frames: data/README.md
 
 % --- instrument
 S.wavelength = 0.7093;              % (A), Mo K-alpha
@@ -62,14 +62,14 @@ S.unmatched_tol = 2;                % tolerance for counting unexplained spots (
 S.refine_cell   = 10;               % max. times the lattice parameters are refined to the matched
                                     % spots and the orientation re-optimised; stops when the
                                     % cell no longer changes (0 = keep the CIF cell)
-S.n_grains      = 3;                % MAXIMUM number of grains: 1 = one crystal; > 1 = after
+S.n_grains      = 1;                % MAXIMUM number of grains: 1 = one crystal; > 1 = after
                                     % each grain the search is repeated on the unexplained spots
                                     % and stops at the first grain with < S.min_spots_per_grain
 S.min_spots_per_grain = 15;         % a further grain must explain at least this many spots
 
 % --- phase: a CIF file (cell, symmetry operations, atoms)
-cif_file = fullfile(here, 'cif', 'beta_Ti_COD9012924.cif');          % beta-Ti (Im-3m)
-phase = phase_from_cif(cif_file, 'hkl_max', 6, 'cell', [3.31 3.31 3.31 90 90 90]);   % Ti-24Nb: a ~ 3.30 A
+cif_file = fullfile(here, 'cif', 'alpha2_Ti20Nb_Cmcm.cif');          % alpha'' Ti-20Nb (Cmcm)
+phase = phase_from_cif(cif_file, 'hkl_max', 6);
 %   Options are given as name-value pairs, in any order and combination, e.g.
 %     phase = phase_from_cif(cif_file);                          % defaults (hkl_max = 6)
 %     phase = phase_from_cif(cif_file, 'hkl_max', 9);
