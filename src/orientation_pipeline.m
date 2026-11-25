@@ -123,6 +123,14 @@ for it = 1:n_it
     if it > 1 && cell_done && bc_done
         break                                   % converged
     end
+    % the cell can alternate between two values when two orientations explain
+    % the same spots (the difference is within the esd): stop then as well
+    if S.refine_cell > 0 && size(cell_log, 1) > 2 && bc_done && ...
+            max(abs(cell_log(end, 2:4) - cell_log(end-2, 2:4))) < 1e-5 * max(phase.cell(1:3))
+        fprintf('cell refinement: alternates between two values (difference %.4f A, within the esd) - stopped\n', ...
+            max(abs(cell_log(end, 2:4) - cell_log(end-1, 2:4))));
+        break
+    end
 end
 T.grain = ones(height(T), 1);
 grains = struct('q', result.q, 'phi0', result.phi0, 'T', T, 'calc', calc, ...

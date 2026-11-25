@@ -375,6 +375,7 @@ describe_figure(gcf, { ...
 % repeated until the cell does not change. Compare figure 8 with figure 7.
 
 T0 = T;
+cells = zeros(0, 3);
 if height(T) < 6
     error('Only %d matched spots - too few to refine the lattice parameter (see sections 2-5).', height(T));
 end
@@ -389,6 +390,10 @@ for it = 1:10
     fprintf('round %d: a b c = %.4f %.4f %.4f A (esd %.4f), rms d2theta %.3f -> %.3f deg, %d spots matched\n', ...
         it, cell_new(1:3), ci.esd(1), ci.rms_before, ci.rms_after, numel(unique(T.spot)));
     if change < 1e-5 * max(cell_new(1:3)), break; end
+    cells(end+1, :) = cell_new(1:3); %#ok<SAGROW>
+    if size(cells, 1) > 2 && max(abs(cells(end, :) - cells(end-2, :))) < 1e-5 * max(cell_new(1:3))
+        fprintf('alternates between two values (within the esd) - stopped\n');  break
+    end
 end
 rings = uniquetol(tth_of_g(g), 1e-6);              % rings of the refined cell for the next sections
 
