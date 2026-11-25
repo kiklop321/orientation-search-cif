@@ -1,8 +1,10 @@
 # results of the scripts (made by running them)
 results/
 
-# diffraction frames (see data/README.md)
+# diffraction frames (see data/README.md); two example frames are included
 *.img
+!data/Ti20Nb0O.img
+!data/beta_single_grain/Ti24Nb_1.img
 
 # MATLAB
 *.asv

@@ -10,7 +10,7 @@
 %   5. assign the spots, plot, save       (src/match_spots.m, src/plot_overlay.m)
 %
 % Everything that can be changed is in section 0. Output goes to
-% results/<name>/ (see README.md).
+% results/<name>/ (see README.md and docs/USER_GUIDE.md).
 %
 % Method: Salata et al., J. Appl. Cryst. 59 (2026), Sections 3.1 and 4.3.
 
@@ -33,7 +33,7 @@ beam_center  = [1274, 3247];        % detector pixel [row, column] of the direct
                                     % the spots much worse. The sample-detector distance
                                     % (127.26 mm = radius of the image plate) is read from the header.
 S.refine_beam_center = false;       % true = refine beam_center to the matched spots (no calibrant
-                                    % needed; start within ~10 px), see README, step 6
+                                    % needed; start within ~10 px), see docs/METHOD.md, step 6
 S.beam_center_scan   = 20;          % before that, coarse scan +-this many px (0 = none)
 
 % --- angles

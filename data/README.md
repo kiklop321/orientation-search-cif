@@ -1,16 +1,19 @@
 # Diffraction frames
 
-The frames (Rigaku R-AXIS RAPID `.img`, 2560 x 4600 px, 23.6 MB each) are
-not stored in this repository. Put them here with these names; the scripts
-expect exactly this layout:
+Two example frames are included, so the tool can be tried at once:
+`Ti20Nb0O.img` (used by `run_orientation_search.m` as delivered) and
+`beta_single_grain/Ti24Nb_1.img` (used by `step_by_step.m` and the example
+in `docs/USER_GUIDE.md`). The other frames (Rigaku R-AXIS RAPID `.img`,
+2560 x 4600 px, 23.6 MB each) are not stored here; put them here with these
+names – the scripts expect exactly this layout:
 
 ```
 data/
   Ti20Nb0O.img                     Ti-20Nb: alpha'' martensite (12 variants of one beta grain)
-                                   - run_orientation_search.m (example of GUIDE.md, section 2),
+                                   - run_orientation_search.m (as delivered),
                                      tests/test_beta_Ti.m (negative control), variant search
   beta_single_grain/               beta Ti-24Nb / Ti-28Nb, one grain each
-    Ti24Nb_1.img                   - step_by_step.m, GUIDE.md section 5, tests/test_beta_Ti.m
+    Ti24Nb_1.img                   - step_by_step.m, docs/USER_GUIDE.md section 2, tests/test_beta_Ti.m
     Ti24Nb0O-50-40.img             - tests/test_beta_Ti.m (tube at 50 kV / 40 mA)
     Ti28Nb_1.img                   - tests/test_beta_Ti.m
     Ti28Nb0O.img                   - tests/test_beta_Ti.m
