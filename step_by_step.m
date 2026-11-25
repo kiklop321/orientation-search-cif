@@ -29,7 +29,7 @@ clear; close all;
 % mfilename does not give it - then it is found on the MATLAB path / current folder
 here = fileparts(mfilename('fullpath'));
 if isempty(here) || ~isfile(fullfile(here, 'step_by_step.m')), here = fileparts(which('step_by_step.m')); end
-if isempty(here), error('Go to the folder Orientation_search_cif first (cd), then run this section again.'); end
+if isempty(here), error('Go to the folder of the tool (orientation-search-cif) first (cd), then run this section again.'); end
 addpath(fullfile(here, 'src'), fullfile(here, 'external', 'RigakuRapidUtils'), fullfile(here, 'external', 'sphere'));
 
 % --- what is analysed

@@ -18,7 +18,7 @@ the beam centre.
   Learning and Aerospace toolboxes.
 * Open MATLAB and go to the folder:
   ```matlab
-  cd 'C:\...\Orientation_search_cif'
+  cd 'C:\...\orientation-search-cif'
   ```
 * Check that everything works:
   ```matlab

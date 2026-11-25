@@ -25,7 +25,7 @@ does not work. Variants of martensite / ω in a parent grain (MTEX) and the
 pictures of an orientation: [GUIDE_VARIANTS.md](GUIDE_VARIANTS.md).
 
 ```matlab
-cd Orientation_search_cif
+cd orientation-search-cif
 test_cif                    % checks the CIF reader on the files in cif/ (seconds)
 run_orientation_search      % orientation search, settings in section 0
 ```
