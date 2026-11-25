@@ -1,0 +1,16 @@
+# results of the scripts (made by running them)
+results/
+
+# diffraction frames (see data/README.md)
+*.img
+
+# MATLAB
+*.asv
+*.autosave
+*~
+slprj/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

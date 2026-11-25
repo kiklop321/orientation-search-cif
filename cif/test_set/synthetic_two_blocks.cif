@@ -1,0 +1,27 @@
+# Synthetic test file: publication data in the first block, the structure
+# (NaCl) in the second block, plus an unknown element (D) and an atom
+# without coordinates (Q1). Only for test_cif_any.m.
+data_global
+_publ_section_title  'Test of a CIF with two data blocks'
+_journal_name_full   'none'
+
+data_NaCl_test
+_chemical_name_common   'NaCl test'
+_symmetry_space_group_name_H-M   'F m -3 m'
+_cell_length_a   5.6402(3)
+_cell_length_b   5.6402(3)
+_cell_length_c   5.6402(3)
+_cell_angle_alpha   90
+_cell_angle_beta    90
+_cell_angle_gamma   90
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+Na1  Na1+  0.0  0.0  0.0  1
+Cl1  Cl1-  0.5  0.5  0.5  1
+D1   D     0.25 0.25 0.25 0.1
+Q1   Q     ?    ?    ?    1

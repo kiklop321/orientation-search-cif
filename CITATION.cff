@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the article below."
+title: "Orientation search from a single 2D X-ray diffraction frame (CIF version)"
+type: software
+authors:
+  - family-names: Salata
+    given-names: Kristián
+    affiliation: "Charles University, Prague"
+license: MIT
+preferred-citation:
+  type: article
+  title: "The effect of Nb and O on the martensitic transformation in Ti–Nb–O alloys"
+  authors:
+    - family-names: Salata
+      given-names: Kristián
+  journal: "Journal of Applied Crystallography"
+  volume: 59
+  year: 2026
+  doi: "10.1107/S1600576726007739"

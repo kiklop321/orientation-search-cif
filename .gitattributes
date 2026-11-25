@@ -1,0 +1,7 @@
+*.mat  binary
+*.png  binary
+*.gif  binary
+*.mp4  binary
+*.img  binary
+*.mexw64 binary
+*.mexa64 binary
